@@ -1,6 +1,4 @@
-
-package com.cooltrickshome;
-
+package com.jsontopojo;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,69 +15,54 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "name",
-    "sport",
-    "age",
+    "about",
+    "created",
     "id",
-    "lastScores"
+    "likes",
+    "submitted"
 })
 public class Input {
 
-    @JsonProperty("name")
-    private String name;
-    @JsonProperty("sport")
-    private String sport;
-    @JsonProperty("age")
-    private Integer age;
+    @JsonProperty("about")
+    private String about;
+    @JsonProperty("created")
+    private String created;
     @JsonProperty("id")
     private Integer id;
-    @JsonProperty("lastScores")
-    private List<Integer> lastScores = new ArrayList<Integer>();
+    @JsonProperty("likes")
+    private Integer likes;
+    @JsonProperty("submitted")
+    private List<Integer> submitted = new ArrayList<Integer>();
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("name")
-    public String getName() {
-        return name;
+    @JsonProperty("about")
+    public String getabout() {
+        return about;
     }
 
-    @JsonProperty("name")
-    public void setName(String name) {
-        this.name = name;
+    @JsonProperty("about")
+    public void setName(String about) {
+        this.about = about;
     }
 
-    public Input withName(String name) {
-        this.name = name;
+    public Input withAbout(String about) {
+        this.about = about;
         return this;
     }
 
-    @JsonProperty("sport")
-    public String getSport() {
-        return sport;
+    @JsonProperty("created")
+    public String getCreated() {
+        return created;
     }
 
-    @JsonProperty("sport")
-    public void setSport(String sport) {
-        this.sport = sport;
+    @JsonProperty("created")
+    public void setCreated(String created) {
+        this.created = created;
     }
 
-    public Input withSport(String sport) {
-        this.sport = sport;
-        return this;
-    }
-
-    @JsonProperty("age")
-    public Integer getAge() {
-        return age;
-    }
-
-    @JsonProperty("age")
-    public void setAge(Integer age) {
-        this.age = age;
-    }
-
-    public Input withAge(Integer age) {
-        this.age = age;
+    public Input withCreated(String created) {
+        this.created = created;
         return this;
     }
 
@@ -98,18 +81,33 @@ public class Input {
         return this;
     }
 
-    @JsonProperty("lastScores")
-    public List<Integer> getLastScores() {
-        return lastScores;
+    @JsonProperty("likes")
+    public Integer getLikes() {
+        return likes;
     }
 
-    @JsonProperty("lastScores")
-    public void setLastScores(List<Integer> lastScores) {
-        this.lastScores = lastScores;
+    @JsonProperty("likes")
+    public void setLikes(Integer likes) {
+        this.likes = likes;
     }
 
-    public Input withLastScores(List<Integer> lastScores) {
-        this.lastScores = lastScores;
+    public Input withId(Integer likes) {
+        this.likes =likes;
+        return this;
+    }
+
+    @JsonProperty("submitted")
+    public List<Integer> getsubmitted() {
+        return submitted;
+    }
+
+    @JsonProperty("submitted")
+    public void setSubmitted(List<Integer> submitted) {
+        this.submitted = submitted;
+    }
+
+    public Input withSubmitted(List<Integer> submitted) {
+        this.submitted = submitted;
         return this;
     }
 
@@ -124,18 +122,18 @@ public class Input {
     }
 
     @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
+    public void setAdditionalProperty(String about, Object value) {
         this.additionalProperties.put(name, value);
     }
 
-    public Input withAdditionalProperty(String name, Object value) {
+    public Input withAdditionalProperty(String about, Object value) {
         this.additionalProperties.put(name, value);
         return this;
     }
 
     @Override
     public int hashCode() {
-        return new HashCodeBuilder().append(name).append(sport).append(age).append(id).append(lastScores).append(additionalProperties).toHashCode();
+        return new HashCodeBuilder().append(about).append(created).append(like).append(id).append(submitted).append(additionalProperties).toHashCode();
     }
 
     @Override
@@ -147,7 +145,7 @@ public class Input {
             return false;
         }
         Input rhs = ((Input) other);
-        return new EqualsBuilder().append(name, rhs.name).append(sport, rhs.sport).append(age, rhs.age).append(id, rhs.id).append(lastScores, rhs.lastScores).append(additionalProperties, rhs.additionalProperties).isEquals();
+        return new EqualsBuilder().append(about, rhs.about).append(created, rhs.created).append(like, rhs.like).append(id, rhs.id).append(submitted, rhs.submitted).append(additionalProperties, rhs.additionalProperties).isEquals();
     }
 
 }
